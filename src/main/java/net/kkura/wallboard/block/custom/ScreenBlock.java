@@ -20,8 +20,9 @@ public class ScreenBlock extends Block {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
 
-        level.addParticle(ParticleTypes.GLOW, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, 0, 1, 0);
-
+        if (!player.isShiftKeyDown()) {
+            level.addParticle(ParticleTypes.GLOW, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, 0, 1, 0);
+        }
 
         if (player.isShiftKeyDown()) {
             level.playSound(player, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 2f, 1f);
