@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "redstone",
+  "key": {
+    "R": "minecraft:redstone",
+    "S": "wallboard:screen",
+    "W": "minecraft:oak_planks"
+  },
+  "pattern": [
+    "WWW",
+    "RSR",
+    "WWW"
+  ],
+  "result": {
+    "count": 4,
+    "id": "wallboard:screen_block"
+  }
+}
