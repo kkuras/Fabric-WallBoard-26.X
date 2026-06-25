@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
-    "all": "wallboard:block/screen_block"
+    "bottom": "wallboard:block/screen_block_bottom",
+    "front": "wallboard:block/screen_block_front",
+    "side": "wallboard:block/screen_block_side",
+    "top": "wallboard:block/screen_block_top"
   }
 }

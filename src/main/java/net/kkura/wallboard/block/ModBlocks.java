@@ -11,6 +11,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Function;
@@ -20,6 +22,9 @@ public class ModBlocks {
 
     public static final Block SCREEN_BLOCK =registerBlock("screen_block",
             properties -> new ScreenBlock(properties.strength(3f)));
+
+
+    public static final Block BLOCK = registerBlock("block", RotatedPillarBlock::new);
 
 
 
