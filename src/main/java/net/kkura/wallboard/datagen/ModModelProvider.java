@@ -37,7 +37,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         createOrientableBlock(ModBlocks.SCREEN_BLOCK, blockModelGenerators);
 
-
     }
 
     private void createOrientableBlock(Block block, BlockModelGenerators gen) {

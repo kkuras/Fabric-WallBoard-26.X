@@ -14,9 +14,6 @@ import java.util.Set;
 
 public class ModBlocksEntities {
 
-
-
-
     public static final BlockEntityType<ScreenBlockEntity> SCREEN_BLOCK_ENTITY =
             Registry.register(
                     BuiltInRegistries.BLOCK_ENTITY_TYPE,

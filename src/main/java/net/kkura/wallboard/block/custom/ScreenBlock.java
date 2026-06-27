@@ -42,7 +42,6 @@ public class ScreenBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-
         Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
         Direction clicked = hitResult.getDirection();
 
