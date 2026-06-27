@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -30,17 +31,6 @@ public class ScreenBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return simpleCodec(ScreenBlock::new);
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new ScreenBlockEntity(pos, state);
-    }
-
-    @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
         Direction clicked = hitResult.getDirection();
@@ -49,9 +39,15 @@ public class ScreenBlock extends BaseEntityBlock {
             return InteractionResult.PASS;
         }
 
-        if (!player.isShiftKeyDown()) {
-            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, 1, 1, 0);
-        } else if (player.isShiftKeyDown()) {
+        if (!level.isClientSide()) {
+            if (!player.isShiftKeyDown()) {
+                if (level.getBlockEntity(pos) instanceof ScreenBlockEntity blockEntity) {
+                    blockEntity.setText("Texto de teste");
+                    player.sendSystemMessage(Component.literal("Texto salvo: " + blockEntity.getText()));
+                }
+            }
+        }
+        if (player.isShiftKeyDown()) {
             level.playSound(player, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 2f, 1f);
         }
 
@@ -73,4 +69,16 @@ public class ScreenBlock extends BaseEntityBlock {
     protected RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return simpleCodec(ScreenBlock::new);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new ScreenBlockEntity(pos, state);
+    }
+
 }
