@@ -3,6 +3,7 @@ package net.kkura.wallboard;
 import net.fabricmc.api.ModInitializer;
 
 import net.kkura.wallboard.block.ModBlocks;
+import net.kkura.wallboard.block.entity.ModBlocksEntities;
 import net.kkura.wallboard.creativemodetab.ModCreativeModeTabs;
 import net.kkura.wallboard.item.ModItems;
 
@@ -20,6 +21,7 @@ public class WallBoard implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModBlocksEntities.registerModBlocksEntities();
 	}
 
 }

@@ -24,9 +24,6 @@ public class ModBlocks {
             properties -> new ScreenBlock(properties.strength(3f)));
 
 
-    public static final Block BLOCK = registerBlock("block", RotatedPillarBlock::new);
-
-
 
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function) {
@@ -41,12 +38,10 @@ public class ModBlocks {
         Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(WallBoard.MOD_ID, name),
                 new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix()
                         .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(WallBoard.MOD_ID, name)))));
-
     }
 
     public static void registerModBlocks() {
         WallBoard.LOGGER.info("Registering mod blocks for " + WallBoard.MOD_ID);
-
 
     }
 }
