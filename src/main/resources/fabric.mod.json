@@ -18,6 +18,9 @@
 		"main": [
 			"net.kkura.wallboard.WallBoard"
 		],
+		"client": [
+			"net.kkura.wallboard.WallBoardClient"
+		],
 		"fabric-datagen": [
 			"net.kkura.wallboard.WallBoardDataGenerator"
 		]
